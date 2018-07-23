@@ -40,11 +40,11 @@ class ISSService{
     
     func createLocationObservable() -> Observable<Location> {
         return Observable<Int>
-            .timer(0, period: 10, scheduler: MainScheduler.instance)
+            .timer(0, period: 5, scheduler: MainScheduler.instance)
             .flatMap { [weak self] _ -> Observable<(HTTPURLResponse, Any)> in
                 return requestJSON(.get, (self?.issPositionURLString)!)
             }
-            .timeout(11, scheduler: MainScheduler.instance)
+            .timeout(6, scheduler: MainScheduler.instance)
             .filter { response, _ -> Bool in
                 return 200..<300 ~= response.statusCode
             }

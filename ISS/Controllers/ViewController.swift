@@ -9,9 +9,6 @@
 import UIKit
 import Mapbox
 import RxSwift
-import SwiftyJSON
-import RxAlamofire
-import Alamofire
 
 class ViewController: UIViewController, MGLMapViewDelegate {
 
@@ -49,7 +46,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
                         }else{
                             self?.setMarker(to: Location(longitude: 0, latitude: 0, timeStamp: 0))
                         }
-                })
+            })
             .disposed(by: disposeBag)
     }
 
@@ -93,7 +90,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
     private func createLastSyncTimeLabel(){
         lastSyncTimeTextView = UITextView(frame: CGRect(x: view.bounds.minX, y: view.bounds.minY + 50, width: 200, height: 100))
         lastSyncTimeTextView.backgroundColor = UIColor.clear
-        lastSyncTimeTextView.textColor = .white
+        lastSyncTimeTextView.textColor = .black
         lastSyncTimeTextView.textAlignment = .left
         view.addSubview(lastSyncTimeTextView)
     }
